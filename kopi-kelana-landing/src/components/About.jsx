@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import AboutImg from "../assets/coffee.jpg";
+import logo from "../assets/logo.png";
 
 export default function About() {
   return (
@@ -10,10 +11,18 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold mb-6 text-black dark:text-yellow-400">
+          <div className="mx-auto mb-6 w-24 h-24 flex items-center justify-center rounded-full bg-yellow-400 dark:bg-yellow-400 shadow-lg">
+            <img
+              src={logo}
+              alt="Kopi Kelana Logo"
+              className="mx-auto mb-6 w-24 md:w-28 object-contain"
+            />
+          </div>
+
+          <h2 className="text-4xl font-bold mb-6 text-blue-900 dark:text-yellow-400">
             About Kopi Kelana
           </h2>
-          <p className="text-black dark:text-yellow-400 leading-relaxed font-italic font-semibold">
+          <p className="text-gray-500 dark:text-yellow-400 leading-relaxed">
             Kopi Kelana is more than a coffee shop. It is a cozy place where you
             can relax, work, or enjoy time with friends. We use high quality
             beans and create a warm experience in every cup.

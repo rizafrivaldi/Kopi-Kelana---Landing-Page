@@ -8,7 +8,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="bg-gray-100 dark:bg-zinc-900 py-24">
+    <section id="testimonials" className="bg-gray-100 dark:bg-black py-24">
       <div className="py-24, px-6 max-w-6xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

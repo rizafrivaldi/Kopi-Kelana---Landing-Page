@@ -4,6 +4,7 @@ import Hero from "./src/components/Hero";
 import Menu from "./src/components/Menu";
 import Footer from "./src/components/Footer";
 import WhatsAppButton from "./src/components/WhatsAppButton";
+import InstagramButton from "./src/components/InstagramButton";
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -18,6 +19,7 @@ export default function App() {
       <Hero />
       <Menu />
       <WhatsAppButton />
+      <InstagramButton />
       <Footer />
     </div>
   );
