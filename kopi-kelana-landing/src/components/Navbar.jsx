@@ -4,13 +4,13 @@ export default function Navbar({ darkMode, setDarkMode }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed w-full bg-white/80 dark:bg-black/70 backdrop-blur-lg shadow-md z-50">
+    <header className="fixed w-full bg-white/30 dark:bg-black/70 backdrop-blur-lg shadow-md z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-        <h1 className="text-xl font-bold text-blue-900 dark:text-blue-400">
-          Kopi Kelana
+        <h1 className="text-xl font-bold text-gray-800 dark:text-gray-100">
+          Kopi Kelana Indonesia
         </h1>
 
-        <nav className="hidden md:flex space-x-8 text-blue-900 font-semibold">
+        <nav className="hidden md:flex space-x-8 text-gray-800 dark:text-gray-100 font-bold">
           {["home", "about", "menu", "testimonials", "contact"].map(
             (section) => (
               <a
