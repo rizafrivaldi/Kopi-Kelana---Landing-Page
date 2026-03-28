@@ -123,3 +123,12 @@ code {
 .glass-box {
   @apply bg-white/20 dark:bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl;
 }
+
+/* hide scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

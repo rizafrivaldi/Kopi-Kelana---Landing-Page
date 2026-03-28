@@ -1,23 +1,26 @@
 import { motion } from "framer-motion";
+import americano from "../assets/menu/americano.png";
+import caramelMacchiato from "../assets/menu/caramel_macchiato.png";
+import macha from "../assets/menu/macha.png";
 
 const items = [
   {
     name: "Caramel Macchiato",
     price: "$5.50",
-    img: "./src/assets/menu/caramel_macchiato.png",
-    size: "w-36", // PNG lo
+    img: caramelMacchiato,
+    size: "w-24", // PNG lo
   },
   {
     name: "Macha",
     price: "$4.00",
-    img: "./src/assets/menu/macha.png",
-    size: "w-36", // PNG lo
+    img: macha,
+    size: "w-32", // PNG lo
   },
   {
     name: "Americano",
     price: "$3.50",
-    img: "./src/assets/menu/americano.png",
-    size: "w-32", // PNG lo
+    img: americano,
+    size: "w-24", // PNG lo
   },
 ];
 
@@ -46,10 +49,10 @@ export default function BestSellers() {
             className="relative bg-gray-100 dark:bg-zinc-800 rounded-2xl p-6 pt-20 text-center shadow hover:-translate-y-2 hover:shadow-xl transition group"
           >
             {/* PNG IMAGE FLOATING */}
-            <div className="absolute -top-16 left-1/2 transform -translate-x-1/2">
+            <div className="absolute -top-16 left-1/2 -translate-x-1/2 flex justify-center">
               <img
                 src={item.img}
-                className="w-32 object-contain drop-shadow-xl group-hover:scale-110 transition"
+                className={`${item.size} object-contain drop-shadow-xl group-hover:scale-110 transition`}
               />
             </div>
 

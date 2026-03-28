@@ -1,117 +1,82 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
-import menuImg from "../assets/menu5.jpg";
-
-const menuItems = [
-  {
-    name: "Latte",
-    price: "$4.50",
-    type: "Coffee",
-    img: "./src/assets/menu/americano.png",
-    size: "w-28",
-  },
-  {
-    name: "Cappuccino",
-    price: "$4.00",
-    type: "Coffee",
-    img: "./src/assets/menu/caramel_macchiato.png",
-    size: "w-28",
-  },
-  {
-    name: "Americano",
-    price: "$3.50",
-    type: "Coffee",
-    img: "./src/assets/menu/chocolate.png",
-    size: "w-56",
-  },
-  {
-    name: "Caramel Macchiato",
-    price: "$5.50",
-    type: "Coffee",
-    img: "./src/assets/menu/coffee_pandan.png",
-    size: "w-24",
-  },
-  {
-    name: "Chocolate Milk",
-    price: "$3.50",
-    type: "Non-Coffee",
-    img: "./src/assets/menu/macha.png",
-    size: "w-32",
-  },
-  {
-    name: "Green Tea Latte",
-    price: "$4.00",
-    type: "Non-Coffee",
-    img: "./src/assets/menu/coffee_latte.png",
-    size: "w-32",
-  },
-];
+import menuImg from "../assets/menu4.jpg"; // ganti dengan gambar lo
 
 export default function Menu() {
-  const [filter, setFilter] = useState("All");
-  const filtered =
-    filter === "All"
-      ? menuItems
-      : menuItems.filter((item) => item.type === filter);
-
   return (
-    <section id="menu" className="py-24 bg-gray-100 dark:bg-black">
-      <div className="max-w-6xl mx-auto px-6 text-center">
+    <section id="menu" className="py-24 bg-white dark:bg-black">
+      <div className="max-w-6xl mx-auto px-6">
         {/* TITLE */}
-        <h2 className="text-4xl font-bold mb-6 text-blue-900 dark:text-yellow-400">
+        <h2 className="text-4xl font-bold text-center mb-12 text-blue-900 dark:text-yellow-400">
           Our Menu
         </h2>
 
-        {/* FILTER */}
-        <div className="mb-10 space-x-4">
-          {["all", "coffee", "non-coffee"].map((f) => (
-            <button
-              key={f}
-              onClick={() => setFilter(f)}
-              className={`px-4 py-2 rounded-xl backdrop-blur-lg border transition
-              ${
-                filter === f
-                  ? "bg-blue-600 text-white"
-                  : "bg-white/50 dark:bg-zinc-800 text-black dark:text-white"
-              }`}
-            >
-              {f}
-            </button>
-          ))}
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-col md:flex-row gap-10 items-stretch"
+        >
+          {/* LEFT: IMAGE */}
+          <div className="md:w-1/2 h-full md:h-[420px]">
+            <img
+              src={menuImg}
+              className="w-full h-full object-cover rounded-3xl shadow-xl"
+            />
+          </div>
 
-        {/* CARDS */}
-        <div className="grid md:grid-cols-3 gap-10">
-          {filtered.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="relative bg-white dark:bg-zinc-800 rounded-2xl p-6 pt-20 
-                         shadow hover:-translate-y-2 hover:shadow-xl transition group"
-            >
-              {/* FLOATING PNG */}
-              <div className="absolute -top-16 left-1/2 transform -translate-x-1/2">
-                <img
-                  src={item.img}
-                  className={`${item.size || "w-32"} object-contain 
-                              drop-shadow-xl group-hover:scale-110 transition`}
-                />
-              </div>
-
-              {/* CONTENT */}
-              <h3 className="mt-12 text-lg font-semibold text-gray-800 dark:text-white">
-                {item.name}
+          {/* RIGHT: MENU LIST */}
+          <div className="md:w-1/2 h-full bg-white dark:bg-zinc-800 rounded-3xl p-8 shadow-xl flex flex-col md:h-[420px]">
+            {/* WRAPPER SCROLL */}
+            <div className="overflow-y-auto pr-2 max-h-[400px] scrollbar-hide">
+              {/* COFFEE */}
+              <h3 className="text-2xl font-bold mb-4 text-blue-900 dark:text-yellow-400">
+                Coffee
               </h3>
 
-              <p className="text-blue-600 dark:text-yellow-400 font-bold">
-                {item.price}
-              </p>
-            </motion.div>
-          ))}
-        </div>
+              <div className="space-y-2 mb-8">
+                {[
+                  { name: "Americano", price: "IDR 20k" },
+                  { name: "Coffee Latte", price: "IDR 25k" },
+                  { name: "Cappuccino", price: "IDR 24k" },
+                  { name: "Espresso", price: "IDR 18k" },
+                  { name: "Mocha", price: "IDR 27k" },
+                  { name: "Flat White", price: "IDR 26k" },
+                  { name: "Affogato", price: "IDR 28k" },
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex justify-between border-b border-dashed pb-1 text-gray-700 dark:text-gray-300"
+                  >
+                    <span>{item.name}</span>
+                    <span className="font-semibold">{item.price}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* NON COFFEE */}
+              <h3 className="text-2xl font-bold mb-4 text-blue-900 dark:text-yellow-400">
+                Non Coffee
+              </h3>
+
+              <div className="space-y-2">
+                {[
+                  { name: "Chocolate", price: "IDR 22k" },
+                  { name: "Matcha Latte", price: "IDR 24k" },
+                  { name: "Milk Tea", price: "IDR 23k" },
+                  { name: "Lemon Tea", price: "IDR 20k" },
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex justify-between border-b border-dashed pb-1 text-gray-700 dark:text-gray-300"
+                  >
+                    <span>{item.name}</span>
+                    <span className="font-semibold">{item.price}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
