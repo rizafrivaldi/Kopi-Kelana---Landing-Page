@@ -25,10 +25,14 @@ export default function Testimonials() {
             {testimonials.map((t, i) => (
               <div
                 key={i}
-                className="bg-white dark:bg-zinc-900 p-6 rounded-2xl shadow-lg"
+                className="bg-white dark:bg-zinc-800 hover:dark:bg-yellow-400p-6 rounded-2xl shadow-lg"
               >
-                <p className="text-gray-600 dark:text-gray-300">"{t.text}"</p>
-                <h4 className="mt-4 font-semibold text-blue-600">{t.author}</h4>
+                <p className="pt-14 px-14 text-center text-gray-600 dark:text-gray-300">
+                  "{t.text}"
+                </p>
+                <h4 className="mt-4 font-semibold text-blue-600 dark:text-yellow-400 pb-14">
+                  {t.author}
+                </h4>
               </div>
             ))}
           </div>
