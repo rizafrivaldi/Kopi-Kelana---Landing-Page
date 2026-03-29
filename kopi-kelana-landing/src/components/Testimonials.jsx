@@ -8,8 +8,11 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="bg-gray-100 dark:bg-black py-24">
-      <div className="py-24, px-6 max-w-6xl mx-auto text-center">
+    <section
+      id="testimonials"
+      className=" py-24 bg-white dark:bg-black text-white text-center px-6"
+    >
+      <div className="max-w-6xl mx-auto bg-gray-100 dark:bg-zinc-900 rounded-3xl py-24 px-6 shadow-xl">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -22,7 +25,7 @@ export default function Testimonials() {
             {testimonials.map((t, i) => (
               <div
                 key={i}
-                className="bg-gray-100 dark:bg-zinc-900 p-6 rounded-2xl shadow"
+                className="bg-white dark:bg-zinc-900 p-6 rounded-2xl shadow-lg"
               >
                 <p className="text-gray-600 dark:text-gray-300">"{t.text}"</p>
                 <h4 className="mt-4 font-semibold text-blue-600">{t.author}</h4>

@@ -20,12 +20,12 @@ export default function Menu() {
           <div className="md:w-1/2 h-full md:h-[420px]">
             <img
               src={menuImg}
-              className="w-full h-full object-cover rounded-3xl shadow-xl"
+              className="w-full h-full object-cover rounded-3xl"
             />
           </div>
 
           {/* RIGHT: MENU LIST */}
-          <div className="md:w-1/2 h-full bg-white dark:bg-zinc-800 rounded-3xl p-8 shadow-xl flex flex-col md:h-[420px]">
+          <div className="md:w-1/2 h-full bg-gray-100 dark:bg-zinc-800 rounded-3xl p-8 flex flex-col md:h-[420px]">
             {/* WRAPPER SCROLL */}
             <div className="overflow-y-auto pr-2 max-h-[400px] scrollbar-hide">
               {/* COFFEE */}
