@@ -1,7 +1,7 @@
 export default function InstagramButton() {
   return (
     <a
-      href="https://instagram.com/kopikelana" // ganti username lo
+      href="https://instagram.com/kopi.kelana.indonesia" // ganti username lo
       target="_blank"
       className="fixed bottom-20 right-6 flex items-center gap-2 
                  bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 
