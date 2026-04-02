@@ -63,6 +63,11 @@ export default function App() {
     setTestimonials((prev) => [newComment, ...prev.slice(0, 9)]);
   };
 
+  const resetComments = () => {
+    setTestimonials([]);
+    localStorage.removeItem("testimonials");
+  };
+
   return (
     <div
       className="font-sans transition duration-300 
@@ -76,7 +81,7 @@ export default function App() {
       <Menu />
 
       {/* ✅ FIX DI SINI */}
-      <Testimonials testimonials={testimonials} />
+      <Testimonials testimonials={testimonials} resetComments={resetComments} />
       <CommentForm addComment={addComment} />
 
       <Contact />

@@ -27,14 +27,20 @@ export default function CommentForm({ addComment }) {
         <input
           type="text"
           placeholder="Your Name"
-          className="w-full p-3 rounded-lg border"
+          className="w-full p-3 rounded-lg border 
+             bg-white text-black 
+             dark:bg-zinc-800 dark:text-white 
+             focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
 
         <textarea
           placeholder="Your Comment"
-          className="w-full p-3 rounded-lg border"
+          className="w-full p-3 rounded-lg border 
+             bg-white text-black 
+             dark:bg-zinc-800 dark:text-white 
+             focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
