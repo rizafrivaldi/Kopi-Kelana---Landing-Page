@@ -1,12 +1,6 @@
 import { motion } from "framer-motion";
 
-const testimonials = [
-  { text: "Best coffee ever!", author: "Alice" },
-  { text: "Super cozy place!", author: "Bob" },
-  { text: "Amazing vibe and taste!", author: "Charlie" },
-];
-
-export default function Testimonials() {
+export default function Testimonials({ testimonials }) {
   return (
     <section
       id="testimonials"
@@ -25,14 +19,17 @@ export default function Testimonials() {
             {testimonials.map((t, i) => (
               <div
                 key={i}
-                className="bg-white dark:bg-zinc-800 hover:dark:bg-yellow-400p-6 rounded-2xl shadow-lg"
+                className="bg-white dark:bg-zinc-800 hover:dark:bg-yellow-400p p-6 rounded-2xl shadow-lg"
               >
-                <p className="pt-14 px-14 text-center text-gray-600 dark:text-gray-300">
+                <p className="pt-10 px-6 text-center text-gray-600 dark:text-gray-300">
                   "{t.text}"
                 </p>
-                <h4 className="mt-4 font-semibold text-blue-600 dark:text-yellow-400 pb-14">
+
+                <h4 className="mt-4 font-semibold text-blue-600 dark:text-yellow-400">
                   {t.author}
                 </h4>
+
+                <p className="text-xs text-gray-400 mt-1">{t.date}</p>
               </div>
             ))}
           </div>
