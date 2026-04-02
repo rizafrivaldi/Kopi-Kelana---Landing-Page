@@ -1,26 +1,28 @@
 import { motion } from "framer-motion";
+
+// ⚠️ IMPORT IMAGE (WAJIB BIAR SIZE WORK)
+import caramel from "../assets/menu/caramel_macchiato.png";
+import matcha from "../assets/menu/macha.png";
 import americano from "../assets/menu/americano.png";
-import caramelMacchiato from "../assets/menu/caramel_macchiato.png";
-import macha from "../assets/menu/macha.png";
 
 const items = [
   {
     name: "Caramel Macchiato",
     price: "$5.50",
-    img: caramelMacchiato,
-    size: "w-24", // PNG lo
+    img: caramel,
+    size: "w-32", // bebas ubah
   },
   {
-    name: "Macha",
+    name: "Matcha",
     price: "$4.00",
-    img: macha,
-    size: "w-32", // PNG lo
+    img: matcha,
+    size: "w-44",
   },
   {
     name: "Americano",
     price: "$3.50",
     img: americano,
-    size: "w-24", // PNG lo
+    size: "w-32",
   },
 ];
 
@@ -37,8 +39,8 @@ export default function BestSellers() {
         </p>
       </div>
 
-      {/* CARDS */}
-      <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 px-6">
+      {/* GRID */}
+      <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-16 px-6">
         {items.map((item, i) => (
           <motion.div
             key={i}
@@ -46,29 +48,32 @@ export default function BestSellers() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.2 }}
-            className="relative bg-gray-100 dark:bg-zinc-800 rounded-2xl p-6 pt-20 text-center shadow hover:-translate-y-2 hover:shadow-xl transition group"
+            className="relative flex flex-col items-center group"
           >
-            {/* PNG IMAGE FLOATING */}
-            <div className="absolute -top-16 left-1/2 -translate-x-1/2 flex justify-center">
+            {/* CIRCLE BACKGROUND */}
+            <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-full bg-gray-100 dark:bg-zinc-800 shadow-xl flex items-center justify-center">
+              {/* Glow effect */}
+              <div className="absolute w-40 h-40 bg-blue-500/20 dark:bg-yellow-400/20 blur-3xl rounded-full"></div>
+            </div>
+
+            {/* FLOATING IMAGE */}
+            <div className="absolute -top-12">
               <img
                 src={item.img}
-                className={`${item.size} object-contain drop-shadow-xl group-hover:scale-110 transition`}
+                alt={item.name}
+                className={`${item.size} object-contain drop-shadow-2xl transition duration-300 group-hover:scale-110`}
               />
             </div>
 
-            {/* CONTENT */}
-            <h3 className="mt-12 text-lg font-semibold text-gray-800 dark:text-white">
-              {item.name}
-            </h3>
-
-            <p className="text-blue-600 dark:text-yellow-400 font-bold">
-              {item.price}
-            </p>
-
-            {/* BADGE */}
-            <span className="absolute top-4 right-4 text-xs px-3 py-1 bg-yellow-400 text-black rounded-full">
-              Best 🔥
-            </span>
+            {/* TEXT */}
+            <div className="mt-20 text-center">
+              <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
+                {item.name}
+              </h3>
+              <p className="text-blue-600 dark:text-yellow-400 font-bold">
+                {item.price}
+              </p>
+            </div>
           </motion.div>
         ))}
       </div>
